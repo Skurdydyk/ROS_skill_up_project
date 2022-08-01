@@ -1,1 +1,4 @@
-.idea
+*
+
+!robot_project/
+!robot_project/*/
