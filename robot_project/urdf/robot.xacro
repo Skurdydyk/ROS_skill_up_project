@@ -1,5 +1,7 @@
 <?xml version="1.0" ?>
-<robot name="robot">
+<robot name="robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:include filename="$(find robot_project)/urdf/gazebo.xacro" />
+
     <!-- Link - chassis -->
     <link name="link_chassis">
         <inertial>
