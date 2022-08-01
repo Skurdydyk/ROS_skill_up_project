@@ -13,13 +13,13 @@
                 <box size="2 1.3 0.4" />
             </geometry> -->
             <geometry>
-                <mesh filename="package://robot_description/meshes/chassis.stl" />
+                <mesh filename="package://robot_project/meshes/chassis.stl" />
             </geometry>
         </collision>
 
         <visual>
             <geometry>
-                <mesh filename="package://robot_description/meshes/chassis.stl" />
+                <mesh filename="package://robot_project/meshes/chassis.stl" />
             </geometry>
             <!-- <geometry>
                 <box size="2 1.3 0.4" />
@@ -108,7 +108,7 @@
         <visual>
             <origin rpy="1.5707 0 0" xyz="0 0.18 0" />
             <geometry>
-                <mesh filename="package://robot_description/meshes/wheel.stl" />
+                <mesh filename="package://robot_project/meshes/wheel.stl" />
             </geometry>
             <material name="Black">
                 <color rgba="0.1 0.1 0.1 1" />
@@ -172,7 +172,7 @@
         <visual>
             <origin rpy="1.5707 0 0" xyz="0 -0.18 0" />
             <geometry>
-                <mesh filename="package://robot_description/meshes/wheel.stl" />
+                <mesh filename="package://robot_project/meshes/wheel.stl" />
             </geometry>
             <material name="Black">
                 <color rgba="0.1 0.1 0.1 1" />
