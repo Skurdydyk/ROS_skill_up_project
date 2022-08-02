@@ -1,4 +1,4 @@
-image: name_of_map2.pgm
+image: flat.pgm
 resolution: 0.050000
 origin: [-100.000000, -40.400000, 0.000000]
 negate: 0
