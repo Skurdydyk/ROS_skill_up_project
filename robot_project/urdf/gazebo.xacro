@@ -6,16 +6,26 @@
     </gazebo>
     <gazebo reference="link_caster_wheel">
         <material>Gazebo/Grey</material>
+        <mu1>0</mu1>
+        <mu2>0</mu2>
     </gazebo>
     <gazebo reference="link_left_wheel">
         <material>Gazebo/Black</material>
+        <mu1>1</mu1>
+        <mu2>1</mu2>
     </gazebo>
     <gazebo reference="link_right_wheel">
         <material>Gazebo/Black</material>
+        <mu1>1</mu1>
+        <mu2>1</mu2>
+    </gazebo>
+
+    <gazebo reference="joint_chassis_caster_wheel">
+        <preserveFixedJoint>true</preserveFixedJoint>
     </gazebo>
 
     <gazebo>
-        <plugin filename="libdiffdrive_plugin.so" name="differential_drive_controller">
+        <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
             <alwaysOn>true</alwaysOn>
             <updateRate>20</updateRate>
             <leftJoint>joint_chassis_left_wheel</leftJoint>
@@ -65,7 +75,7 @@
             </ray>
             <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
                 <topicName>/laser/scan</topicName>
-                <frameName>sensor_laser</frameName>
+                <frameName>link_chassis</frameName>
             </plugin>
         </sensor>
     </gazebo>
