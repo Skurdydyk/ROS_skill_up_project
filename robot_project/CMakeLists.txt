@@ -12,6 +12,8 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   urdf
   xacro
+  sensor_msgs
+  std_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -72,6 +74,7 @@ find_package(catkin REQUIRED COMPONENTS
 # generate_messages(
 #   DEPENDENCIES
 #   std_msgs  # Or other packages containing msgs
+#   std_msgs
 # )
 
 ################################################
@@ -106,7 +109,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES robot_project
-#  CATKIN_DEPENDS roscpp rospy urdf xacro
+#  CATKIN_DEPENDS roscpp rospy urdf xacro sensor_msgs std_msgs
 #  DEPENDS system_lib
 )
 

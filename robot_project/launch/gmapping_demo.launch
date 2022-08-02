@@ -1,6 +1,6 @@
 <launch>
     <arg name="scan_topic" default="/laser/scan" />
-    <arg name="base_frame"  default="base_footprint"/>
+    <arg name="base_frame"  default="link_chassis"/>
     <arg name="odom_frame"  default="odom"/>
 
     <!-- Defining parameters for slam_gmapping node -->
