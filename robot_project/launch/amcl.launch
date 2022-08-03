@@ -1,7 +1,4 @@
 <launch>
-  <arg name="map_file" default="$(find robot_project)/maps/flat.yaml"/>
-  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
-
   <arg name="use_map_topic" default="true"/>
   <arg name="scan_topic" default="/laser/scan" />
 
@@ -11,10 +8,10 @@
     <param name="odom_model_type" value="diff"/>
     <param name="odom_alpha5" value="0.1"/>
     <param name="gui_publish_rate" value="10.0"/>
-    <param name="laser_max_beams" value="60"/>
-    <param name="laser_max_range" value="12.0"/>
-    <param name="min_particles" value="1"/>
-    <param name="max_particles" value="5"/>
+    <param name="laser_max_beams" value="79"/>
+    <param name="laser_max_range" value="80.0"/>
+    <param name="min_particles" value="100"/>
+    <param name="max_particles" value="500"/>
     <param name="kld_err" value="0.05"/>
     <param name="kld_z" value="0.99"/>
     <param name="odom_alpha1" value="0.2"/>
@@ -28,8 +25,8 @@
     <param name="laser_z_rand" value="0.5"/>
     <param name="laser_sigma_hit" value="0.2"/>
     <param name="laser_lambda_short" value="0.1"/>
-    <param name="laser_model_type" value="likelihood_field"/>
-    <!-- <param name="laser_model_type" value="beam"/> -->
+<!--<param name="laser_model_type" value="likelihood_field"/>-->
+    <param name="laser_model_type" value="beam"/>
     <param name="laser_likelihood_max_dist" value="2.0"/>
     <param name="update_min_d" value="0.25"/>
     <param name="update_min_a" value="0.2"/>
