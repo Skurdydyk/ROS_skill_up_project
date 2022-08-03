@@ -16,7 +16,7 @@ Tasks
 Git sources with packages for the project:
 1) openslam_gmapping - https://github.com/ros-perception/openslam_gmapping.git
 2) gmapping - https://github.com/ros-perception/slam_gmapping.git
-3) amcl, map_saver, base_local_planner, move_base, costmap_2d, voxel_grid, nav_core, navfn, rotate_recovery,
-clear_costmap_recovery - https://github.com/ros-planning/navigation.git
+3) amcl, map_saver, base_local_planner, dwa_local_planner, move_base, costmap_2d, voxel_grid, nav_core, navfn, 
+rotate_recovery, clear_costmap_recovery - https://github.com/ros-planning/navigation.git
 4) tf2_sensor_msgs - https://github.com/ros/geometry2.git
 5) move_base_msgs - https://github.com/ros-planning/navigation_msgs.git
