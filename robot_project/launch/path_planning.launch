@@ -19,10 +19,6 @@
         <arg name="debug" value="false"/>
     </include>
 
-    <!-- Show in Rviz   -->
-    <node name="rviz" pkg="rviz" type="rviz" />
-
-
     <arg name="no_static_map" default="false"/>
     <arg name="base_global_planner" default="navfn/NavfnROS"/>
 <!--    <arg name="base_global_planner" default="carrot_planner/CarrotPlanner"/>-->

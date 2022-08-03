@@ -8,10 +8,17 @@ Tasks
 4. Create ROS node (C++) to move the robot inside the simulation using specified points in the environment and avoid obstacles (at least one obstacle)
 5. Write test to test robot behavior in simulation, e.g. if robot can avoid obstacles.
 
-# Run the following commands for a test run:
-
+# Run the following commands for a test control:
 - roslaunch robot_project flat_map.launch (spawn the world)
-- roslaunch robot_project spawn.launch (spawn the robot)
+- roslaunch robot_project spawn.launch (spawn the robot, run rviz)
+
+# Run the following commands for a mapping:
+- roslaunch robot_project gmapping.launch (spawn the world, run slam gmapping)
+- roslaunch robot_project spawn.launch (spawn the robot, run rviz)
+
+# Run the following commands for a localization and path planning run:
+- roslaunch robot_project path_planning.launch (spawn the world, run path planning, amcl, map saver)
+- roslaunch robot_project spawn.launch (spawn the robot, run rviz)
 
 Git sources with packages for the project:
 1) openslam_gmapping - https://github.com/ros-perception/openslam_gmapping.git
