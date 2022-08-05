@@ -236,7 +236,7 @@
 
     <!-- Laser scan -->
     <joint name="joint_laser_scan_chassis" type="fixed">
-        <origin rpy="0 0 0" xyz="0.4 0 0.3" />
+        <origin rpy="0 0 0" xyz="0.4 0 0.2" />
         <child link="link_laser_scan" />
         <parent link="link_chassis" />
         <joint_properties damping="1.0" friction="1.0" />

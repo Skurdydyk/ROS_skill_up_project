@@ -1,5 +1,5 @@
-footprint: [[-1, -1], [-1, 1], [1, 1], [1, -1]]
-footprint_padding: 0.3
+footprint: [[-0.5, -0.5], [-0.5, 0.5], [0.5, 0.5], [0.5, -0.5]]
+footprint_padding: 0.2
 
 robot_base_frame: link_chassis
 update_frequency: 4.0
@@ -15,7 +15,7 @@ static:
 
 obstacles_laser:
     observation_sources: laser
-    laser: {data_type: LaserScan, clearing: true, marking: true, topic: scan, inf_is_valid: true, obstacle_range: 5.5}
+    laser: {data_type: LaserScan, clearing: true, marking: true, topic: /laser/scan, inf_is_valid: true, obstacle_range: 5.5}
 
 inflation:
-    inflation_radius: 1.0
+    inflation_radius: 1.5
