@@ -8,6 +8,13 @@ Tasks
 4. Create ROS node (C++) to move the robot inside the simulation using specified points in the environment and avoid obstacles (at least one obstacle)
 5. Write test to test robot behavior in simulation, e.g. if robot can avoid obstacles.
 
+# Build and run app with docker compose
+1. Build docker image noetic_desktop with Dockerfile
+
+2. Run docker compose command
+- docker-compose -f docker-gmapping.yaml up (services: ros-master, gmapping, spawn_robot, amcl, flat_map)
+- docker-compose -f docker-path-planning.yaml up (services: ros-master, spawn_robot, amcl_world_map)
+
 # Run the following commands for a test control:
 - roslaunch robot_project flat_map.launch (spawn the world)
 - roslaunch robot_project spawn.launch (spawn the robot, run rviz)
