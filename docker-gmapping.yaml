@@ -1,0 +1,81 @@
+version: '3'
+
+networks:
+  ros:
+    driver: bridge
+
+services:
+  ros-master:
+    image: noetic_desktop
+    networks:
+      - ros
+    command: stdbuf -o L roscore
+    restart: always
+
+  gmapping:
+    image: noetic_desktop
+    container_name: gmapping
+    privileged: True
+    depends_on:
+      - ros-master
+    networks:
+      - ros
+    environment:
+      - "ROS_MASTER_URI=http://ros-master:11311"
+      - "DISPLAY=$DISPLAY"
+      - "XAUTHORITY=/tmp/.docker.xauth"
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /tmp/.docker.xauth:/tmp/.docker.xauth
+    command: ["/bin/bash", "-c", "cd catkin_ws; source devel/setup.bash; roslaunch robot_project gmapping.launch --wait;"]
+
+  spawn_robot:
+    image: noetic_desktop
+    container_name: spawn_robot
+    privileged: True
+    depends_on:
+      - ros-master
+    networks:
+      - ros
+    environment:
+      - "ROS_MASTER_URI=http://ros-master:11311"
+      - "DISPLAY=$DISPLAY"
+      - "XAUTHORITY=/tmp/.docker.xauth"
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /tmp/.docker.xauth:/tmp/.docker.xauth
+    command: ["/bin/bash", "-c", "cd catkin_ws; source devel/setup.bash; roslaunch robot_project spawn.launch --wait"]
+
+  amcl:
+    image: noetic_desktop
+    container_name: amcl
+    privileged: True
+    depends_on:
+      - ros-master
+    networks:
+      - ros
+    environment:
+      - "ROS_MASTER_URI=http://ros-master:11311"
+      - "DISPLAY=$DISPLAY"
+      - "XAUTHORITY=/tmp/.docker.xauth"
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /tmp/.docker.xauth:/tmp/.docker.xauth
+    command: ["/bin/bash", "-c", "cd catkin_ws; source devel/setup.bash; roslaunch robot_project amcl.launch --wait;"]
+
+  flat_map:
+    image: flat_map
+    container_name: world
+    privileged: True
+    depends_on:
+      - ros-master
+    networks:
+      - ros
+    environment:
+      - "ROS_MASTER_URI=http://ros-master:11311"
+      - "DISPLAY=$DISPLAY"
+      - "XAUTHORITY=/tmp/.docker.xauth"
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /tmp/.docker.xauth:/tmp/.docker.xauth
+    command: ["/bin/bash", "-c", "cd catkin_ws; source devel/setup.bash; roslaunch robot_project flat_map.launch --wait;"]

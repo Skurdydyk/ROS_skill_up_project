@@ -6,8 +6,9 @@
     <!-- Defining parameters for slam_gmapping node -->
     <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
         <rosparam file="$(find robot_project)/config/gmapping_params.yaml" command="load" />
-        <remap from="scan" to="$(arg scan_topic)"/>
+
         <param name="base_frame" value="$(arg base_frame)"/>
         <param name="odom_frame" value="$(arg odom_frame)"/>
+        <remap from="scan" to="$(arg scan_topic)"/>
     </node>
 </launch>
