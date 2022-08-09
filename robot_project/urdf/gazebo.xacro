@@ -25,10 +25,6 @@
         <mu2>0</mu2>
     </gazebo>
 
-    <gazebo reference="joint_chassis_caster_wheel">
-        <preserveFixedJoint>true</preserveFixedJoint>
-    </gazebo>
-
     <gazebo>
         <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
             <alwaysOn>true</alwaysOn>
@@ -83,13 +79,5 @@
                 <frameName>link_chassis</frameName>
             </plugin>
         </sensor>
-    </gazebo>
-
-    <!-- Control plugin -->
-    <gazebo>
-        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-            <robotNamespace>/robot</robotNamespace>
-            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
-        </plugin>
     </gazebo>
 </robot>
