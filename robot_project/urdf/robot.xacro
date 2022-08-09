@@ -5,10 +5,10 @@
     <xacro:property name="chassis_mass" value="10" />
 
     <xacro:property name="radius_wheel" value="0.15" />
-    <xacro:property name="length_wheel" value="0.12" />
+    <xacro:property name="length_wheel" value="0.06" />
 
     <xacro:property name="radius_cylinder_wheel" value="0.04" />
-    <xacro:property name="length_cylinder_wheel" value="0.12" />
+    <xacro:property name="length_cylinder_wheel" value="0.06" />
 
     <!-- Gazebo tags - Laser scan -->
     <gazebo reference="joint_laser_scan_chassis">
@@ -58,13 +58,13 @@
             <inertia ixx="0.002526666666667" ixy="0" ixz="0" iyy="0.002526666666667" iyz="0" izz="0.005"/>
         </inertial>
         <collision>
-            <origin rpy="1.5707 0 0" xyz="0 0.18 0" />
+            <origin rpy="1.5707 0 0" xyz="0 0.06 0" />
             <geometry>
                 <cylinder length="${length_wheel}" radius="${radius_wheel}"/>
             </geometry>
         </collision>
         <visual>
-            <origin rpy="1.5707 0 0" xyz="0 0.18 0" />
+            <origin rpy="1.5707 0 0" xyz="0 0.06 0" />
             <geometry>
                 <cylinder length="${length_wheel}" radius="${radius_wheel}"/>
             </geometry>
@@ -74,13 +74,13 @@
         </visual>
 
         <collision>
-            <origin rpy="1.5707 0 0" xyz="0 0.06 0" />
+            <origin rpy="1.5707 0 0" xyz="0 0.05 0" />
             <geometry>
                 <cylinder length="${length_cylinder_wheel}" radius="${radius_cylinder_wheel}"/>
             </geometry>
         </collision>
         <visual>
-            <origin rpy="1.5707 0 0" xyz="0 0.06 0" />
+            <origin rpy="1.5707 0 0" xyz="0 0.05 0" />
             <geometry>
                 <cylinder length="${length_cylinder_wheel}" radius="${radius_cylinder_wheel}"/>
             </geometry>
@@ -106,13 +106,13 @@
             <inertia ixx="0.002526666666667" ixy="0" ixz="0" iyy="0.002526666666667" iyz="0" izz="0.005"/>
         </inertial>
         <collision>
-            <origin rpy="1.5707 0 0" xyz="0 -0.18 0" />
+            <origin rpy="1.5707 0 0" xyz="0 -0.06 0" />
             <geometry>
                 <cylinder length="${length_wheel}" radius="${radius_wheel}"/>
             </geometry>
         </collision>
         <visual>
-            <origin rpy="1.5707 0 0" xyz="0 -0.18 0" />
+            <origin rpy="1.5707 0 0" xyz="0 -0.06 0" />
             <geometry>
                 <cylinder length="${length_wheel}" radius="${radius_wheel}"/>
             </geometry>
@@ -122,13 +122,13 @@
         </visual>
 
         <collision>
-            <origin rpy="1.5707 0 0" xyz="0 -0.06 0" />
+            <origin rpy="1.5707 0 0" xyz="0 -0.05 0" />
             <geometry>
                 <cylinder length="${length_cylinder_wheel}" radius="${radius_cylinder_wheel}"/>
             </geometry>
         </collision>
         <visual>
-            <origin rpy="1.5707 0 0" xyz="0 -0.06 0" />
+            <origin rpy="1.5707 0 0" xyz="0 -0.05 0" />
             <geometry>
                 <cylinder length="${length_cylinder_wheel}" radius="${radius_cylinder_wheel}"/>
             </geometry>
@@ -154,13 +154,13 @@
             <inertia ixx="0.002526666666667" ixy="0" ixz="0" iyy="0.002526666666667" iyz="0" izz="0.005"/>
         </inertial>
         <collision>
-            <origin rpy="1.5707 0 0" xyz="0 0.18 0" />
+            <origin rpy="1.5707 0 0" xyz="0 0.06 0" />
             <geometry>
                 <cylinder length="${length_wheel}" radius="${radius_wheel}"/>
             </geometry>
         </collision>
         <visual>
-            <origin rpy="1.5707 0 0" xyz="0 0.18 0" />
+            <origin rpy="1.5707 0 0" xyz="0 0.06 0" />
             <geometry>
                 <cylinder length="${length_wheel}" radius="${radius_wheel}"/>
             </geometry>
@@ -170,13 +170,13 @@
         </visual>
 
         <collision>
-            <origin rpy="1.5707 0 0" xyz="0 0.06 0" />
+            <origin rpy="1.5707 0 0" xyz="0 0.05 0" />
             <geometry>
                 <cylinder length="${length_cylinder_wheel}" radius="${radius_cylinder_wheel}"/>
             </geometry>
         </collision>
         <visual>
-            <origin rpy="1.5707 0 0" xyz="0 0.06 0" />
+            <origin rpy="1.5707 0 0" xyz="0 0.05 0" />
             <geometry>
                 <cylinder length="${length_cylinder_wheel}" radius="${radius_cylinder_wheel}"/>
             </geometry>
@@ -202,13 +202,13 @@
             <inertia ixx="0.002526666666667" ixy="0" ixz="0" iyy="0.002526666666667" iyz="0" izz="0.005"/>
         </inertial>
         <collision>
-            <origin rpy="1.5707 0 0" xyz="0 -0.18 0" />
+            <origin rpy="1.5707 0 0" xyz="0 -0.06 0" />
             <geometry>
                 <cylinder length="${length_wheel}" radius="${radius_wheel}"/>
             </geometry>
         </collision>
         <visual>
-            <origin rpy="1.5707 0 0" xyz="0 -0.18 0" />
+            <origin rpy="1.5707 0 0" xyz="0 -0.06 0" />
             <geometry>
                 <cylinder length="${length_wheel}" radius="${radius_wheel}"/>
             </geometry>
@@ -218,13 +218,13 @@
         </visual>
 
         <collision>
-            <origin rpy="1.5707 0 0" xyz="0 -0.06 0" />
+            <origin rpy="1.5707 0 0" xyz="0 -0.05 0" />
             <geometry>
                 <cylinder length="${length_cylinder_wheel}" radius="${radius_cylinder_wheel}"/>
             </geometry>
         </collision>
         <visual>
-            <origin rpy="1.5707 0 0" xyz="0 -0.06 0" />
+            <origin rpy="1.5707 0 0" xyz="0 -0.05 0" />
             <geometry>
                 <cylinder length="${length_cylinder_wheel}" radius="${radius_cylinder_wheel}"/>
             </geometry>

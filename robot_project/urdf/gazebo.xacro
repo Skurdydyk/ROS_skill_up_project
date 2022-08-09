@@ -32,11 +32,11 @@
     <gazebo>
         <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
             <alwaysOn>true</alwaysOn>
-            <updateRate>20</updateRate>
+            <updateRate>30</updateRate>
             <leftJoint>joint_chassis_left_back_wheel</leftJoint>
             <rightJoint>joint_chassis_right_back_wheel</rightJoint>
-            <wheelSeparation>1.66</wheelSeparation>
-            <wheelDiameter>0.8</wheelDiameter>
+            <wheelSeparation>0.6</wheelSeparation>
+            <wheelDiameter>0.3</wheelDiameter>
             <torque>10</torque>
             <commandTopic>cmd_vel</commandTopic>
             <odometryTopic>odom</odometryTopic>
