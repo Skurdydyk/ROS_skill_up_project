@@ -1,0 +1,15 @@
+my_robot:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Position Controllers ---------------------------------------
+  joint_chassis_left_back_wheel:
+    type: effort_controllers/JointPositionController
+    joint: joint1
+    pid: { p: 100.0, i: 0.01, d: 10.0 }
+  joint_chassis_right_back_wheel:
+    type: effort_controllers/JointPositionController
+    joint: joint2
+    pid: { p: 100.0, i: 0.01, d: 10.0 }

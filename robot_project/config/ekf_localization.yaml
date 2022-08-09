@@ -7,13 +7,13 @@ two_d_mode: true
 publish_tf: false
 
 # Complete the frames section
-odom_frame: odom
+odom_frame: mobile_base_controller/odom
 base_link_frame: link_chassis
 world_frame: map
 map_frame: map
 
 # Complete the odom0 configuration
-odom0: odom
+odom0: mobile_base_controller/odom
 odom0_config: [false, false, false,
                false, false, true,
                true, true, false,

@@ -24,27 +24,6 @@
         <mu1>0</mu1>
         <mu2>0</mu2>
     </gazebo>
-
-    <gazebo reference="joint_chassis_caster_wheel">
-        <preserveFixedJoint>true</preserveFixedJoint>
-    </gazebo>
-
-    <gazebo>
-        <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
-            <alwaysOn>true</alwaysOn>
-            <updateRate>30</updateRate>
-            <leftJoint>joint_chassis_left_back_wheel</leftJoint>
-            <rightJoint>joint_chassis_right_back_wheel</rightJoint>
-            <wheelSeparation>0.6</wheelSeparation>
-            <wheelDiameter>0.3</wheelDiameter>
-            <torque>10</torque>
-            <commandTopic>cmd_vel</commandTopic>
-            <odometryTopic>odom</odometryTopic>
-            <odometryFrame>odom</odometryFrame>
-            <robotBaseFrame>link_chassis</robotBaseFrame>
-        </plugin>
-    </gazebo>
-
     <!-- Gazebo tags - Laser scan -->
     <gazebo reference="joint_laser_scan_chassis">
         <preserveFixedJoint>true</preserveFixedJoint>
@@ -87,9 +66,11 @@
 
     <!-- Control plugin -->
     <gazebo>
+        <!-- Control plugin -->
         <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-            <robotNamespace>/robot</robotNamespace>
+            <robotNamespace>/my_robot</robotNamespace>
             <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+            <legacyModeNS>true</legacyModeNS>
         </plugin>
     </gazebo>
 </robot>

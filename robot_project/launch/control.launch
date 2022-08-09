@@ -1,4 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <launch>
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find robot_project)/urdf/robot.xacro'"/>
+
+    <arg name="x" default="0"/>
+    <arg name="y" default="0"/>
+    <arg name="z" default="0.5"/>
+
+    <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
+          args="-urdf -param robot_description -model my_robot -x $(arg x) -y $(arg y) -z $(arg z)" />
+
+    <rosparam file="$(find robot_project)/config/my_diff_drive.yaml" command="load" />
+
+    <node name="manager" pkg="controller_manager" type="spawner"
+          respawn="false" output="screen" args="mobile_base_controller joint_chassis_left_back_wheel joint_chassis_right_back_wheel " />
+
     <!-- Add models to world -->
     <env name="GAZEBO_MODEL_PATH" value="$(find robot_project)/models"/>
 
@@ -19,6 +34,13 @@
         <arg name="debug" value="false"/>
     </include>
 
+    <!-- send fake joint values -->
+    <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+
+    <!-- Combine joint values -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+    <!-- Show in Rviz   -->
+    <node name="rviz" pkg="rviz" type="rviz" />
     <arg name="no_static_map" default="false"/>
     <arg name="base_global_planner" default="navfn/NavfnROS"/>
 <!--    <arg name="base_global_planner" default="carrot_planner/CarrotPlanner"/>-->
@@ -29,14 +51,9 @@
 <!--    <arg name="base_local_planner" default="eband_local_planner/EBandPlannerROS"/>-->
 <!--    <arg name="base_local_planner" default="teb_local_planner/TebLocalPlannerROS"/>-->
 
-    <!-- Run the EKF Localization node -->
-    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
-        <rosparam command="load" file="$(find robot_project)/config/ekf_localization.yaml"/>
-    </node>
-
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
-        <remap from="odom" to="/odometry/filtered" />
-        <remap from="cmd_vel" to="/mobile_base_controller/cmd_vel" />
+<!--        <remap from="cmd_vel" to="/mobile_base_controller/cmd_vel"/>-->
+<!--        <remap from="odom" to="/mobile_base_controller/odom" />-->
 
         <param name="base_global_planner" value="$(arg base_global_planner)"/>
         <param name="base_local_planner" value="$(arg base_local_planner)"/>

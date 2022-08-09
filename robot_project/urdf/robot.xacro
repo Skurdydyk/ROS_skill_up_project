@@ -18,6 +18,28 @@
         <material>Gazebo/DarkGrey</material>
     </gazebo>
 
+    <transmission name="left_wheel_transmission">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="joint_chassis_left_back_wheel">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="left_wheel_actuator">
+        <mechanicalReduction>7</mechanicalReduction>
+        <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      </actuator>
+    </transmission>
+
+    <transmission name="right_wheel_transmission">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="joint_chassis_right_back_wheel">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="right_wheel_actuator">
+        <mechanicalReduction>7</mechanicalReduction>
+        <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      </actuator>
+    </transmission>
+
     <!-- Link - chassis -->
     <link name="link_chassis">
         <inertial>
@@ -265,4 +287,25 @@
         </collision>
     </link>
 
+    <transmission name="left_wheel_transmission">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="joint_chassis_left_back_wheel">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="left_wheel_actuator">
+        <mechanicalReduction>7</mechanicalReduction>
+        <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      </actuator>
+    </transmission>
+
+    <transmission name="right_wheel_transmission">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="joint_chassis_right_back_wheel">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="right_wheel_actuator">
+        <mechanicalReduction>7</mechanicalReduction>
+        <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      </actuator>
+    </transmission>
 </robot>

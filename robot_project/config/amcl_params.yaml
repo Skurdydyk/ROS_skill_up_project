@@ -23,7 +23,7 @@ laser_model_type: likelihood_field # beam
 laser_likelihood_max_dist: 2.0
 update_min_d: 0.25
 update_min_a: 0.2
-odom_frame_id: odom
+odom_frame_id: /odometry/filtered
 resample_interval: 1
 # Increase tolerance because the computer can get quite busy
 transform_tolerance: 1.0
