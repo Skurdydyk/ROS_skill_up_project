@@ -29,7 +29,13 @@
 <!--    <arg name="base_local_planner" default="eband_local_planner/EBandPlannerROS"/>-->
 <!--    <arg name="base_local_planner" default="teb_local_planner/TebLocalPlannerROS"/>-->
 
+    <!-- Run the EKF Localization node -->
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
+        <rosparam command="load" file="$(find robot_project)/config/ekf_localization.yaml"/>
+    </node>
+
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+        <remap from="odom" to="/odometry/filtered" />
         <param name="base_global_planner" value="$(arg base_global_planner)"/>
         <param name="base_local_planner" value="$(arg base_local_planner)"/>
         <rosparam file="$(find robot_project)/config/planner.yaml" command="load"/>

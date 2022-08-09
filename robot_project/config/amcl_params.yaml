@@ -1,11 +1,11 @@
 # Publish scans from best pose at a max of 10 Hz
 odom_model_type: diff
 odom_alpha5: 0.1
-gui_publish_rate: 10.0
-laser_max_beams: 60
+gui_publish_rate: 50.0
+laser_max_beams: 100
 laser_max_range: 12.0
-min_particles: 50
-max_particles: 200
+min_particles: 500
+max_particles: 2000
 kld_err: 0.05
 kld_z: 0.99
 odom_alpha1: 0.2
