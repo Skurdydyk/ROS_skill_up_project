@@ -2,13 +2,6 @@
     <!-- Add models to world -->
     <env name="GAZEBO_MODEL_PATH" value="$(find robot_project)/models"/>
 
-    <!-- Run the map server -->
-    <arg name="map_file" default="$(find robot_project)/maps/flat.yaml"/>
-    <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
-
-    <!--- Run AMCL -->
-    <include file="$(find robot_project)/launch/amcl.launch" />
-
     <!--- Run flat world -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
         <arg name="world_name" value="$(find robot_project)/world/flat.world"/>
@@ -18,4 +11,14 @@
         <arg name="headless" value="false"/>
         <arg name="debug" value="false"/>
     </include>
+
+    <!-- Run the map server -->
+    <arg name="map_file" default="$(find robot_project)/maps/flat.yaml"/>
+    <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+    <!--- Run AMCL -->
+    <include file="$(find robot_project)/launch/amcl.launch" />
+
+    <!-- Show in Rviz   -->
+    <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find robot_project)/rviz/path_planning.rviz"/>
 </launch>

@@ -1,6 +1,7 @@
 <launch>
     <arg name="use_map_topic" default="true"/>
     <arg name="scan_topic" default="/laser/scan" />
+    <arg name="odom_topic" default="/odometry/filtered" />
 
     <arg name="x" default="0.0"/>
     <arg name="y" default="0.0"/>
@@ -15,6 +16,6 @@
         <param name="initial_pose_a" value="$(arg a)"/>
 
         <remap from="scan" to="$(arg scan_topic)"/>
-        <remap from="odom" to="/odometry/filtered" />
+        <remap from="odom" to="$(arg odom_topic)" />
     </node>
 </launch>
