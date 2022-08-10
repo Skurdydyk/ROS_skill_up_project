@@ -1,6 +1,8 @@
-global_frame: odom
-rolling_window: true
+local_costmap:
+  global_frame: odom
+  robot_base_frame: link_chassis
 
-plugins:
-  - {name: obstacles_laser,           type: "costmap_2d::ObstacleLayer"}
-  - {name: inflation,                 type: "costmap_2d::InflationLayer"}
+  static_map: false
+  rolling_window: true
+  width: 10
+  height: 10
