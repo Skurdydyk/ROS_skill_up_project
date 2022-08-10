@@ -1,0 +1,32 @@
+<launch>
+    <!-- Add models to world -->
+    <env name="GAZEBO_MODEL_PATH" value="$(find robot_project)/models"/>
+
+    <!--- Run world -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find robot_project)/world/flat.world"/>
+        <arg name="paused" value="false"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="gui" value="true"/>
+        <arg name="headless" value="false"/>
+        <arg name="debug" value="false"/>
+    </include>
+
+    <!-- Run the map server -->
+    <arg name="map_file" default="$(find robot_project)/maps/flat.yaml"/>
+    <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+    <!--- Run AMCL -->
+    <include file="$(find robot_project)/launch/amcl.launch" />
+
+    <!-- Run the EKF Localization node -->
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
+        <rosparam command="load" file="$(find robot_project)/config/ekf_localization.yaml"/>
+    </node>
+
+    <!--- Run move base -->
+    <include file="$(find robot_project)/launch/move_base.launch" />
+
+    <!-- Show in Rviz   -->
+    <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find robot_project)/rviz/path_planning.rviz"/>
+</launch>
