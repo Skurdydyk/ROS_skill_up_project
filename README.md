@@ -10,26 +10,26 @@ Tasks
 
 # Build and run app with docker compose
 1. Build docker image noetic_desktop with Dockerfile
-
-2. Run docker compose command
-- docker-compose -f docker-gmapping.yaml up (services: ros-master, gmapping, spawn_robot, amcl, flat_map)
+2. Execute command "xhost +" in your local terminal for access control disabled clients can connect from any host
+3. Run docker compose command
+- docker-compose -f docker-gmapping.yaml up (services: ros-master, gmapping, spawn_robot)
 - docker-compose -f docker-path-planning.yaml up (services: ros-master, spawn_robot, amcl_world_map)
 
 # Run the following commands for a test control:
 - roslaunch robot_project flat_map.launch (spawn the world)
-- roslaunch robot_project spawn.launch (spawn the robot, run rviz)
+- roslaunch robot_project spawn.launch (spawn the robot)
+- rosrun teleop_twist_keyboard teleop_twist_keyboard.py (control)
 
 # Run the following commands for a mapping:
-- roslaunch robot_project gmapping.launch (spawn the world, run slam gmapping)
-- roslaunch robot_project spawn.launch (spawn the robot, run rviz)
+- roslaunch robot_project gmapping.launch (spawn the world, running gmapping and rviz)
+- roslaunch robot_project spawn.launch (spawn the robot)
+- rosrun teleop_twist_keyboard teleop_twist_keyboard.py (control)
 
-# Run the following commands for a localization and path planning run:
-- roslaunch robot_project path_planning.launch (spawn the world, run path planning, amcl, map saver)
-- roslaunch robot_project spawn.launch (spawn the robot, run rviz)
+# Run the following commands for a localization
+- roslaunch robot_project localization.launch (spawn the world, map server with map, running amcl and rviz)
+- roslaunch robot_project spawn.launch (spawn the robot)
+- rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 
-Git sources with packages for the project:
-1) openslam_gmapping - https://github.com/ros-perception/openslam_gmapping.git
-2) gmapping - https://github.com/ros-perception/slam_gmapping.git
-3) amcl, map_saver, base_local_planner, dwa_local_planner, global_planner, carrot_planner, move_base, costmap_2d, voxel_grid, nav_core, navfn, rotate_recovery, clear_costmap_recovery - https://github.com/ros-planning/navigation.git
-4) tf2_sensor_msgs - https://github.com/ros/geometry2.git
-5) move_base_msgs - https://github.com/ros-planning/navigation_msgs.git
+# Run the following commands for a path planning:
+- roslaunch robot_project path_planning.launch (spawn the world, running move base, amcl, ekf, map server with map)
+- roslaunch robot_project spawn.launch (spawn the robot)

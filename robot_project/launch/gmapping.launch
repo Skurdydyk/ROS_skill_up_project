@@ -1,9 +1,22 @@
 <launch>
+    <!-- Add models to world -->
+    <env name="GAZEBO_MODEL_PATH" value="$(find robot_project)/models"/>
+
+    <!--- Run world -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find robot_project)/world/flat.world"/>
+        <arg name="paused" value="false"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="gui" value="true"/>
+        <arg name="headless" value="false"/>
+        <arg name="debug" value="false"/>
+    </include>
+
+    <!-- Defining args for slam_gmapping node -->
     <arg name="scan_topic" default="/laser/scan" />
     <arg name="base_frame"  default="link_chassis"/>
-    <arg name="odom_frame"  default="/odometry/filtered"/>
+    <arg name="odom_frame"  default="odom"/>
 
-    <!-- Defining parameters for slam_gmapping node -->
     <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
         <rosparam file="$(find robot_project)/config/gmapping_params.yaml" command="load" />
 
@@ -11,4 +24,7 @@
         <param name="odom_frame" value="$(arg odom_frame)"/>
         <remap from="scan" to="$(arg scan_topic)"/>
     </node>
+
+    <!-- Show in Rviz   -->
+    <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find robot_project)/rviz/gmapping.rviz"/>
 </launch>

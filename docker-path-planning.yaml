@@ -12,9 +12,9 @@ services:
     command: stdbuf -o L roscore
     restart: always
 
-  spawn_robot:
+  spawn:
     image: noetic_desktop
-    container_name: spawn_robot
+    container_name: spawn
     privileged: True
     depends_on:
       - ros-master
@@ -29,9 +29,9 @@ services:
       - /tmp/.docker.xauth:/tmp/.docker.xauth
     command: ["/bin/bash", "-c", "cd catkin_ws; source devel/setup.bash; roslaunch robot_project spawn.launch --wait"]
 
-  amcl_world_map:
+  path_planning:
     image: noetic_desktop
-    container_name: amcl_world_map
+    container_name: path_planning
     privileged: True
     depends_on:
       - ros-master

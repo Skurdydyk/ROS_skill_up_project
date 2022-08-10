@@ -18,4 +18,7 @@
         <arg name="headless" value="false"/>
         <arg name="debug" value="false"/>
     </include>
+
+    <!-- Show in Rviz   -->
+    <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find robot_project)/rviz/path_planning.rviz"/>
 </launch>
