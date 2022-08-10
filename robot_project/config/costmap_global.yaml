@@ -1,0 +1,4 @@
+global_costmap:
+  global_frame: map
+  robot_base_frame: link_chassis
+  static_map: true
