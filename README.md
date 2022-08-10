@@ -12,8 +12,9 @@ Tasks
 1. Build docker image noetic_desktop with Dockerfile
 2. Execute command "xhost +" in your local terminal for access control disabled clients can connect from any host
 3. Run docker compose command
-- docker-compose -f docker-gmapping.yaml up (services: ros-master, gmapping, spawn_robot)
-- docker-compose -f docker-path-planning.yaml up (services: ros-master, spawn_robot, amcl_world_map)
+- docker-compose -f docker-gmapping.yaml up (services: ros-master, spawn, gmapping)
+- docker-compose -f docker-localization.yaml up (services: ros-master, spawn, localization)
+- docker-compose -f docker-path-planning.yaml up (services: ros-master, spawn, path_planning)
 
 # Run the following commands for a test control:
 - roslaunch robot_project flat_map.launch (spawn the world)
@@ -26,10 +27,10 @@ Tasks
 - rosrun teleop_twist_keyboard teleop_twist_keyboard.py (control)
 
 # Run the following commands for a localization
-- roslaunch robot_project localization.launch (spawn the world, map server with map, running amcl and rviz)
+- roslaunch robot_project localization.launch (spawn the world, running map server with map, amcl, rviz)
 - roslaunch robot_project spawn.launch (spawn the robot)
-- rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+- rosrun teleop_twist_keyboard teleop_twist_keyboard.py (control)
 
 # Run the following commands for a path planning:
-- roslaunch robot_project path_planning.launch (spawn the world, running move base, amcl, ekf, map server with map)
+- roslaunch robot_project path_planning.launch (spawn the world, running map server with map, amcl, rviz, move base, ekf)
 - roslaunch robot_project spawn.launch (spawn the robot)
