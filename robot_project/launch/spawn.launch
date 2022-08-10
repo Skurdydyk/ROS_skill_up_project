@@ -18,5 +18,5 @@
           args="-urdf -param robot_description -model my_robot -x $(arg x) -y $(arg y) -z $(arg z)" />
 
     <!-- Show in Rviz   -->
-    <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find robot_project)/rviz/config.rviz"/>
+    <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find robot_project)/rviz/path_planning.rviz"/>
 </launch>

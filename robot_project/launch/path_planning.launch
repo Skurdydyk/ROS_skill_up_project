@@ -26,5 +26,4 @@
 
     <!--- Run move base -->
     <include file="$(find robot_project)/launch/move_base.launch" />
-
 </launch>
