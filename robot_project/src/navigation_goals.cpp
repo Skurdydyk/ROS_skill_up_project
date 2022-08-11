@@ -30,7 +30,13 @@ class MoveActionRobot{
             // waiting for the robot to reach the goal
             ROS_INFO("Waiting for result");
             client.waitForResult();
-            ROS_INFO("Finished goal %i", number_goal);
+
+            if(client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED){
+                ROS_INFO("Finished goal %i!", number_goal);
+            }
+            else{
+                ROS_INFO("Something went wrong!");
+            }
 
             number_goal += 1;
         }
@@ -40,12 +46,16 @@ class MoveActionRobot{
 };
 
 int main(int argc, char** argv){
-    ros::init(argc, argv, "simple_navigation_goals");
+    ros::init(argc, argv, "navigation_goals");
     MoveActionRobot robot;
 
-//    robot.send_goal(3, -1, -0.03, 1);
-//    robot.send_goal(7.4, -7.8, -0.11, 0.99);
-    robot.send_goal(-0.46, 7.5, 1, 1);
+    robot.send_goal(3, -1, -0.03, 1);
+
+    ros::Duration(0.5).sleep();
+    robot.send_goal(7.4, -7.8, -0.5, 0.8);
+
+    ros::Duration(0.5).sleep();
+    robot.send_goal(5, 6.8, 0.97, 0.2);
 
     ROS_INFO("Finished sending goals!");
 
