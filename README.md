@@ -34,3 +34,6 @@ Tasks
 # Run the following commands for a path planning:
 - roslaunch robot_project path_planning.launch (spawn the world, running map server with map, amcl, rviz, move base, ekf)
 - roslaunch robot_project spawn.launch (spawn the robot)
+
+# Run the following command for checking correct avoid obstacles
+- rostest robot_control avoid_obstacles_robot_integration_test.test --reuse-master

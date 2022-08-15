@@ -109,9 +109,9 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES robot_project
-#  CATKIN_DEPENDS roscpp rospy urdf xacro sensor_msgs std_msgs actionlib move_base_msgs
+   INCLUDE_DIRS include
+  LIBRARIES robot_project
+  CATKIN_DEPENDS roscpp rospy urdf xacro sensor_msgs std_msgs actionlib move_base_msgs
 #  DEPENDS system_lib
 )
 
@@ -122,7 +122,7 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+ include
   ${catkin_INCLUDE_DIRS}
 )
 
@@ -213,3 +213,10 @@ include_directories(
 
 add_executable(navigation_goals src/navigation_goals.cpp)
 target_link_libraries(navigation_goals ${catkin_LIBRARIES})
+
+add_library(move_robot src/move_robot.cpp)
+target_link_libraries(move_robot ${catkin_LIBRARIES})
+
+target_link_libraries(navigation_goals move_robot)
+
+catkin_python_setup()
