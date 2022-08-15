@@ -10,11 +10,12 @@ Tasks
 
 # Build and run app with docker compose
 1. Build docker image noetic_desktop with Dockerfile
-2. Execute command "xhost +" in your local terminal for access control disabled clients can connect from any host
+2. Execute command "xhost local:root" in your local terminal for allowing graphical programs to run as root on the local machine
 3. Run docker compose command
 - docker-compose -f docker-gmapping.yaml up (services: ros-master, spawn, gmapping)
 - docker-compose -f docker-localization.yaml up (services: ros-master, spawn, localization)
 - docker-compose -f docker-path-planning.yaml up (services: ros-master, spawn, path_planning)
+- docker-compose -f docker-send-goals.yaml up (services: ros-master, spawn, path_planning, send_goals)
 
 # Run the following commands for a test control:
 - roslaunch robot_project flat_map.launch (spawn the world)
@@ -35,5 +36,10 @@ Tasks
 - roslaunch robot_project path_planning.launch (spawn the world, running map server with map, amcl, rviz, move base, ekf)
 - roslaunch robot_project spawn.launch (spawn the robot)
 
+# Run the following commands for sending specified points:
+- roslaunch robot_project path_planning.launch (spawn the world, running map server with map, amcl, rviz, move base, ekf)
+- roslaunch robot_project spawn.launch (spawn the robot)
+- rosrun robot_project navigation_goals (sending three points on the map)
+
 # Run the following command for checking correct avoid obstacles
-- rostest robot_control avoid_obstacles_robot_integration_test.test --reuse-master
+- rostest robot_project avoid_obstacles_robot_integration_test.test --reuse-master
