@@ -218,5 +218,3 @@ add_library(move_robot src/move_robot.cpp)
 target_link_libraries(move_robot ${catkin_LIBRARIES})
 
 target_link_libraries(navigation_goals move_robot)
-
-catkin_python_setup()
