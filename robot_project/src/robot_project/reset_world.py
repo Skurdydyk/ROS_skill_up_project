@@ -19,5 +19,6 @@ def delete_model(model_name):
     del_model_prox(model_name)
 
 
-reset_world()
-delete_model('construction_barrel')
+if __name__ == '__main__':
+    reset_world()
+    delete_model('construction_barrel')
