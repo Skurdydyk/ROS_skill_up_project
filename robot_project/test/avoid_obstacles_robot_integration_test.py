@@ -25,7 +25,7 @@ class TestRobotControl(unittest.TestCase):
         self.assertTrue(-0.3 <= coordinates_robot.pose.position.y <= 0.3)
 
         # spawning an obstacle directly in front of the robot
-        spawn_model('construction_barrel')
+        spawn_model('construction_barrel', 3, 0, 0.2)
 
         # send second move base goal
         send_goal(6, 0.0, 0.0, 0.2)
