@@ -1,0 +1,6 @@
+<launch>
+<!--  <include file="$(find robot_project)/launch/path_planning.launch" />-->
+<!--  <include file="$(find robot_project)/launch/spawn.launch" />-->
+  <node pkg="robot_project" type="reset_world.py" name="reset_world" />
+  <test test-name="avoid_obstacles_robot_integration_test" pkg="robot_project" type="avoid_obstacles_robot_integration_test.py" />
+</launch>

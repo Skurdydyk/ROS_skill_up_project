@@ -3,7 +3,7 @@
 
     <arg name="x" default="0"/>
     <arg name="y" default="0"/>
-    <arg name="z" default="0.5"/>
+    <arg name="z" default="0.15"/>
 
     <!-- send fake joint values -->
     <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
