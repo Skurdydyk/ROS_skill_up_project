@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+    <include file="$(find robot_project)/launch/path_planning.launch" />
+    <include file="$(find robot_project)/launch/spawn.launch" />
+    <test test-name="unit_test_node" pkg="robot_project" type="utest"/>
+</launch>
