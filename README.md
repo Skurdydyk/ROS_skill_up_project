@@ -40,3 +40,9 @@ Tasks
 - roslaunch robot_project path_planning.launch (spawn the world, running map server with map, amcl, rviz, move base, ekf)
 - roslaunch robot_project spawn.launch (spawn the robot)
 - rosrun robot_project navigation_goals (sending three points on the map)
+
+# Run the following command for checking correct avoid obstacles
+- rostest robot_project avoid_obstacles_robot_integration_test.test --reuse-master (python unittest)
+
+# Run the following command for checking correct moving
+- rostest robot_project move_robot_test.test --reuse-master (c++ gtest)
