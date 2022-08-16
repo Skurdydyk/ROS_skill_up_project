@@ -219,4 +219,12 @@ target_link_libraries(move_robot ${catkin_LIBRARIES})
 
 target_link_libraries(navigation_goals move_robot)
 
+find_package(GTest REQUIRED)
+
+catkin_add_gtest(utest_catkin test/test_move_robot.cpp)
+target_link_libraries(utest_catkin ${catkin_LIBRARIES})
+
+add_executable(test_move_robot test/test_move_robot.cpp)
+target_link_libraries(test_move_robot ${GTEST_LIBRARIES} move_robot)
+
 catkin_python_setup()
