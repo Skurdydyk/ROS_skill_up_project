@@ -4,7 +4,7 @@ import unittest
 import rostest
 import rospy
 
-from robot_project.helpers import Action
+from robot_project.actions import Action
 
 PKG = 'robot_project'
 NAME = 'avoid_obstacle_robot_integration_test'

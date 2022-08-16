@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-from helpers import Action
+from actions import Action
 
 if __name__ == '__main__':
     action = Action()
