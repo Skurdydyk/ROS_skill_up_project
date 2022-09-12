@@ -1,14 +1,9 @@
 version: '3'
 
-networks:
-  ros:
-    driver: bridge
-
 services:
   ros-master:
     image: noetic_desktop
-    networks:
-      - ros
+    network_mode: "host"
     command: stdbuf -o L roscore
     restart: always
 
@@ -18,10 +13,8 @@ services:
     privileged: True
     depends_on:
       - ros-master
-    networks:
-      - ros
+    network_mode: "host"
     environment:
-      - "ROS_MASTER_URI=http://ros-master:11311"
       - "DISPLAY=$DISPLAY"
       - "XAUTHORITY=/tmp/.docker.xauth"
     volumes:
@@ -35,10 +28,8 @@ services:
     privileged: True
     depends_on:
       - ros-master
-    networks:
-      - ros
+    network_mode: "host"
     environment:
-      - "ROS_MASTER_URI=http://ros-master:11311"
       - "DISPLAY=$DISPLAY"
       - "XAUTHORITY=/tmp/.docker.xauth"
     volumes:
@@ -52,10 +43,8 @@ services:
     privileged: True
     depends_on:
       - ros-master
-    networks:
-      - ros
+    network_mode: "host"
     environment:
-      - "ROS_MASTER_URI=http://ros-master:11311"
       - "DISPLAY=$DISPLAY"
       - "XAUTHORITY=/tmp/.docker.xauth"
     volumes:
