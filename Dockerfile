@@ -18,7 +18,8 @@ RUN mkdir catkin_ws &&  \
     git clone https://github.com/Skurdydyk/slam_gmapping.git && \
     git clone https://github.com/Skurdydyk/openslam_gmapping.git && \
     git clone https://github.com/Skurdydyk/geometry2.git && \
-    git clone https://github.com/Skurdydyk/navigation_msgs.git
+    git clone https://github.com/Skurdydyk/navigation_msgs.git && \
+    git clone https://github.com/Skurdydyk/vision_opencv.git
 
 RUN /bin/bash -c 'cd ../../; \
     source ros_entrypoint.sh; \
