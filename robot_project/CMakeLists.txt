@@ -16,6 +16,8 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   actionlib
   move_base_msgs
+  cv_bridge
+  image_transport
 )
 
 ## System dependencies are found with CMake's conventions
@@ -111,7 +113,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
    INCLUDE_DIRS include
   LIBRARIES robot_project
-  CATKIN_DEPENDS roscpp rospy urdf xacro sensor_msgs std_msgs actionlib move_base_msgs
+  CATKIN_DEPENDS roscpp rospy urdf xacro sensor_msgs std_msgs actionlib move_base_msgs cv_bridge image_transport
 #  DEPENDS system_lib
 )
 
@@ -124,6 +126,8 @@ catkin_package(
 include_directories(
  include
   ${catkin_INCLUDE_DIRS}
+  ${catkin_INCLUDE_DIRS}
+  ${OpenCV_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
@@ -228,3 +232,6 @@ add_executable(test_move_robot test/test_move_robot.cpp)
 target_link_libraries(test_move_robot ${GTEST_LIBRARIES} move_robot)
 
 catkin_python_setup()
+
+add_executable(opencv_example src/opencv_example.cpp)
+target_link_libraries(opencv_example ${catkin_LIBRARIES} ${OpenCV_INCLUDE_DIRS})
